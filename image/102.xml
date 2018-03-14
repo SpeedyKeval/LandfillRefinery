@@ -1,0 +1,26 @@
+<annotation>
+	<folder>image</folder>
+	<filename>102.jpg</filename>
+	<path>F:/models-master/research/object_detection/image/102.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>201</width>
+		<height>250</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>can</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>32</xmin>
+			<ymin>1</ymin>
+			<xmax>169</xmax>
+			<ymax>248</ymax>
+		</bndbox>
+	</object>
+</annotation>

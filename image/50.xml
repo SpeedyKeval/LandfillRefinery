@@ -1,0 +1,26 @@
+<annotation>
+	<folder>can_images</folder>
+	<filename>50.jpg</filename>
+	<path>E:/Keval/Python_Examples/Tensorflow_Experiment/can_images/50.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>216</width>
+		<height>233</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>can</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>40</xmin>
+			<ymin>11</ymin>
+			<xmax>157</xmax>
+			<ymax>219</ymax>
+		</bndbox>
+	</object>
+</annotation>

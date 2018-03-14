@@ -1,0 +1,26 @@
+<annotation>
+	<folder>image</folder>
+	<filename>3032916006_3743db3266_z.jpg</filename>
+	<path>F:/models-master/research/object_detection/image/3032916006_3743db3266_z.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>428</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>can</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>299</xmin>
+			<ymin>172</ymin>
+			<xmax>441</xmax>
+			<ymax>385</ymax>
+		</bndbox>
+	</object>
+</annotation>

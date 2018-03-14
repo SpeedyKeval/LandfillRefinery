@@ -1,0 +1,26 @@
+<annotation>
+	<folder>noncan</folder>
+	<filename>125.jpg</filename>
+	<path>E:/Keval/Python_Examples/Tensorflow_Experiment/noncan/125.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>200</width>
+		<height>200</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>non</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>23</xmin>
+			<ymin>28</ymin>
+			<xmax>169</xmax>
+			<ymax>154</ymax>
+		</bndbox>
+	</object>
+</annotation>

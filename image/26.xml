@@ -1,0 +1,26 @@
+<annotation>
+	<folder>can1</folder>
+	<filename>3068661135_d856aaacc9_z.jpg</filename>
+	<path>E:/Keval/Python_Examples/tensorflow_models/windows_v1.5.2/can1/3068661135_d856aaacc9_z.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>500</width>
+		<height>375</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>can</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>174</xmin>
+			<ymin>63</ymin>
+			<xmax>327</xmax>
+			<ymax>363</ymax>
+		</bndbox>
+	</object>
+</annotation>

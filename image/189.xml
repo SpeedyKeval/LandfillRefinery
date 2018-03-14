@@ -1,0 +1,26 @@
+<annotation>
+	<folder>can</folder>
+	<filename>189.jpg</filename>
+	<path>D:/trialpython/can/189.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>800</width>
+		<height>1094</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>can</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>28</xmin>
+			<ymin>518</ymin>
+			<xmax>348</xmax>
+			<ymax>852</ymax>
+		</bndbox>
+	</object>
+</annotation>
