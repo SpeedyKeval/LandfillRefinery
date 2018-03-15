@@ -1,0 +1,84 @@
+###############################################################################################################################################################
+							TFRECORD GENERATION
+
+1)	Download Images or Click Images for your custom objects. Save it in a specfic folder with folder name as object_name.
+
+2)	Use a specific software for creating bounding boxes over your objects in an image and manually label them according to their name or display name.
+	It will create xml file having 
+		1. Name of the image file.
+		2. xmax, xmin, ymax, ymin (forming a rectangular box over the object you trace using the software) of each boxes in given image.
+		3. Label for the box according to rectangular area selected.
+
+3)	This Information should be extracted and converted into a single csv file from each xml file of each image. Different objects different csv file.
+
+4)	Add flags and accordingly change tfrecord file to take images of objects and csv file accordingly to convert each image data to tfrecord (single file).
+
+###################################################################################################################################################################
+							OBJECT-DETECTION AND ITS CHALLENGES
+
+
+1) 	Initial we had taken around 130 images with inception model version 2, tried to solve the problem of Aluminium Can detection from images, 
+	live video streaming.
+	As we started to train model for a single object Aluminium Can, at about every 5k steps we have checked the accuracy of the model, 
+	it had always come with good accuracy to detect Aluminium Can, but on other hand it was always trying detect Aluminium Can in each image.
+
+2)	We have done a continous training over that model, make it perfect but we are not getting the desired result, which is to detect Aluminium Can, 
+	if it is in the image or video.
+
+3)	Around 80k steps, which is about 9 days of continuous training time, with the same dataset, result almost similar to previous, detecting
+	Aluminium Can, but trying to over-fit Aluminium Can over each image. Showing bounding boxes and labeling as Aluminium Can, for even a dog, cat, etc.
+
+4)	Thinking where we might have gone wrong
+		1. Small dataset
+			solution: Increase dataset, in perticular format.
+		2. Model choosen (ssd_inception_v2_coco) is not appropriate for Aluminium Can
+			solution: Choose model like ssd_mobilenet_v1_coco, fast_rcnn_inception_v2_coco, etc.
+		3. Hardware not supported (Proccessor or Computational Power)
+			solution: use cloud or try to find some good configration CPU having NVDIA GPU (with high computational speed)
+		4. Single Class (Aluminium Can) detector trying to supper-impossing
+			solution: Increasing number of classes or Providing two classes (Aluminium Can and None:- not having Aluminium Can)
+		5. Model is trained and trying to find all the previous classes on which it was been trained.
+			solution: Use a model which have objects not related to Aluminium Can (in shape and colour)
+		6. A concept says larger the batch size provided for training, better might be the result.
+			solution: Increase batch size and Have to choose hardware which can support or handle large dataset at a perticular instance.
+
+5)	Trying for 3rd point, changing the hardware doesn't seem to work-out, same problem detecting can in each images.
+
+6)	Trying for 6th point, it was difficult as increasing batch size needs large amount of RAM (Minimum 14GB with 15 as batch size), or large GPU.
+	Still tried with that concept. leading it takes time about 
+		- For Intel Xeon Architecture and no GPU with 16GB of RAM, around 24 s/step for 24 as batch size.
+		  i.e To complete 10k steps, days = (10000 / ((24 * 60 * 60)/24)) ~ 2.78. 
+		  i.e 2.78 days for 10k steps, therefor to complete 100k steps it has to take 27.8 days ~ 28 days
+		- For Intel Xeon Architecture and no GPU with 16GB of RAM, around 10 s/step for 10 as batch size.
+		  i.e To complete 10k steps, days = (10000 / ((24 * 60 * 60)/10) ~ 1. 
+		  i.e 1 day for 10k steps, therefor to complete 100k steps it has to take 10 days.
+		- For NVDIA GPU having computational capability of 5.0,	around 3.3 s/step for batch size 10. (2GB card)
+		  i.e To complete 10k steps, days = (10000 / ((24 * 60 * 60)/3.3) ~ .4.
+
+7)	Trying for 1st point, increased the dataset but hard thing that it went upside down, tedous task and no good result.
+
+8)	No hint how to solve the problem with 5th point, because blank model is like, again building a whole new architecture of multilayered CNN and 
+	giving it training which is a really time consuming. And not a smart work, 
+	Google has build tensorflow object-detection models after 1 and half years of experiments.  
+
+9)	Last option, as the concept for object-detection we used in earlier concept of HOG with SVM, we need to provide Images having
+		- Aluminium Can 
+		- Other than Aluminium Can
+
+
+###################################################################################################################################################################
+
+							TENSORFLOW PRE-TRAINED MODELS
+
+- This models are known as pre-trained, as they have ability to extract features from images faster than a new model.
+- They are like models which have good feature extracting skill, not fast object-detection skill as per it's defination conveys.
+- According to theory, model can be trained for custom objects.
+- This model has to be trained everytime with tfrecords of all the classes or objects which you need to detect from an image or live video for the custom object 
+	detection.
+- Stopping of training of this model can lead you too a model which is trained for that amount of training steps. Restarting it from present number of step will not 
+	increase the amount of training, but will again start training from zero. This model is not going remember what was done till that number of steps.
+- Model is a good feature extractor not classifier or object-detector. With restarting the training it will again start it's training as if it had no knowledge with
+	itself.
+- Observation states that around 2-3k steps might be required per objects or classes.
+- As per observation each classes should have atleast 300-400 images and in specific file format "jpg". As transfering or converting pixels value of an image to 
+	4 dimensional and 3 channeled tensors might not work for different file formats.
