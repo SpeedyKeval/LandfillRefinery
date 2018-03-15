@@ -104,9 +104,12 @@ def main(_):
             continue
     grouped = split(examples1,'filename')
     for group in grouped:
-        tf_example = create_tf_example(group, '..\\noncan')
-        writer.write(tf_example.SerializeToString())
-        counter += 1
+        try:
+            tf_example = create_tf_example(group, '..\\noncan')
+            writer.write(tf_example.SerializeToString())
+            counter += 1
+        except:
+            continue
     writer.close()
     output_path = os.path.join(os.getcwd(), FLAGS.output_path)
     print('Successfully created the TFRecords: {}'.format(output_path), counter)
