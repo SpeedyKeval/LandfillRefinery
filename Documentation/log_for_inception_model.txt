@@ -44,7 +44,14 @@
 
 9)	copy all the file under research/slim
 	- paste it at python3.x/lib/site-packages/
+	
 	=> Above 9th step is only for windows user
+
+10)	Download Pre-Trained Model as per your choice, for low configuration system it is prefereble to
+	go with mobilenet or inception-v2
+
+	=> ssd_mobilenet_v1_coco model : http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz
+	=> ssd_inception_v2_coco model  : http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2017_11_17.tar.gz
 
 #########################################################################################################
 
@@ -154,3 +161,24 @@
 - As per observation each classes should have atleast 300-400 images and in specific file format "jpg".
 	As transfering or converting pixels value of an image to 4 dimensional and 3 channeled tensors might not 
 	work for different file formats.
+
+##########################################################################################################################
+
+			STEPS TO TRAIN CUSTOM OBJECT DETECTION MODEL
+
+1)	Generate "TFRECORD", which is prefered file format with bytes form of record.
+	- To generate check previous section of "TFRECORD GENTERATION".
+
+2)	Keep the whole downloaded model ssd_inception_v2_coco in the folder object-detection of model-master (tensorflow api).
+	=> path: model-master/research/object-detection/ 	or  	path: models/research/object-detection/
+
+3)	Update config file of inception model according to folder names user defined.
+	=> path: model-master/research/object-detection/samples/configs/
+
+		- Change the batch size according to your system compabilities. (Generally batch_size = 10)
+		- Change path to downloaded model, i.e ssd_inception_v2_coco
+			-> ssd_inception_v2_coco/model.index
+		- Change path to label file, under train section
+
+4)	create a folder where you want to store the trained model.
+	- for example: training, 
