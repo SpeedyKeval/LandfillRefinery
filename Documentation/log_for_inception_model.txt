@@ -8,7 +8,15 @@
 	   those object which are recycable and bio-degradable.
 	=> "Aluminium Can", "Plastic Bottle", "Banana Peel", are some of the objects which can be either
 	   recycled or are bio-degradable.
-	=> 
+	=> Detailed:
+		- A script executed over local machine that can detect this objects.
+		- If it detects any of the objects for which that has been trained, will identify
+		  and locate it from the Image or Video.
+		- A Rectangluar Box with label or Name of the object will be seen over the object.
+		- Using this script, a robotic system can get idea about where in the real world object
+		  is situated. The Position of object in real world according to position of object
+		  in the image or video.
+		- 
 
 2)	Reason
 	=> Workers and People are getting killed every day, near and in this large Dump-Yards (Landfills).
@@ -67,8 +75,8 @@
 	
 	=> Above 9th step is only for windows user
 
-10)	Download Pre-Trained Model as per your choice, for low configuration system it is prefereble to
-	go with mobilenet or inception-v2
+10)	Download Pre-Trained Model as per your requirement. For low configuration system it is 
+	prefereble to go with mobilenet or inception-v2
 
 	=> ssd_mobilenet_v1_coco model : 
 	http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz
@@ -77,7 +85,9 @@
 
 #########################################################################################################
 
-				TFRECORD GENERATION
+					TFRECORD GENERATION 
+
+(A PREFERED FILE TYPE DATASET FOR TENSORFLOW)
 
 1)	Download Images or Click Images for your custom objects. 
 	Save it in a specfic folder with folder name as object_name.
@@ -93,8 +103,15 @@
 3)	This Information should be extracted and converted into a single csv file from each xml file
 	of each image. Different objects different csv file.
 
-4)	Add flags and accordingly change tfrecord file to take images of objects and csv file
-	accordingly to convert each image data to tfrecord (single file).
+4)	Add "flags" and accordingly change tfrecord generator file to take images of objects and csv file
+	respectively to convert each image data to tfrecord (single file).
+		- i.e Python has this "flags", which has functionality to pass command line arugments.
+		- As this generator file requires the path of folder in which images are stored and path
+		  to csv files, flags are used to pass the absolute or symbolic path.
+		- Initially as only one image dataset is been used for trail, it is having three flag for
+		  one for each path to csv, path to folder where positive images are stored and path to 
+		  folder where negative images are stored respectively.
+		- Due which as per requirement add flags in any sequence to file of tfrecord generator.
 
 #########################################################################################################
 
