@@ -1,5 +1,25 @@
 #########################################################################################################
 
+					OBJECTIVE
+
+1)	Idea
+	=> To develop a system, which can be used to help humans working in a Landfill(Dump Yards).
+	=> A system based on computer vision, i.e a bit of Video Surveillance, which can detect and bring
+	   those object which are recycable and bio-degradable.
+	=> "Aluminium Can", "Plastic Bottle", "Banana Peel", are some of the objects which can be either
+	   recycled or are bio-degradable.
+	=> 
+
+2)	Reason
+	=> Workers and People are getting killed every day, near and in this large Dump-Yards (Landfills).
+	=> Finding objects which can be recycled is an important task in this era. As dump is increasing
+	   place to store that has become an issue.
+	=> On this Landfills large fires have cased huge damages.
+	=> Bio-Degradable waste creates bio-gas, that casues diseases like asthma, etc.
+	=> 
+
+#########################################################################################################
+
 			REQUIRED LIBRARIES AND THEIR INSTALLATION
 
 1)	Python (General Programming Langauge)
@@ -50,8 +70,10 @@
 10)	Download Pre-Trained Model as per your choice, for low configuration system it is prefereble to
 	go with mobilenet or inception-v2
 
-	=> ssd_mobilenet_v1_coco model : http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz
-	=> ssd_inception_v2_coco model  : http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2017_11_17.tar.gz
+	=> ssd_mobilenet_v1_coco model : 
+	http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz
+	=> ssd_inception_v2_coco model  : 
+	http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2017_11_17.tar.gz
 
 #########################################################################################################
 
@@ -74,7 +96,7 @@
 4)	Add flags and accordingly change tfrecord file to take images of objects and csv file
 	accordingly to convert each image data to tfrecord (single file).
 
-##########################################################################################################
+#########################################################################################################
 
 			OBJECT-DETECTION AND ITS CHALLENGES
 
@@ -96,7 +118,8 @@
 		1. Small dataset
 			solution: Increase dataset, in perticular format.
 		2. Model choosen (ssd_inception_v2_coco) is not appropriate for Aluminium Can
-			solution: Choose model like ssd_mobilenet_v1_coco, fast_rcnn_inception_v2_coco, etc.
+			solution: Choose model like ssd_mobilenet_v1_coco, fast_rcnn_inception_v2_coco, 
+			etc.
 		3. Hardware not supported (Proccessor or Computational Power)
 			solution: use cloud or try to find some good configration CPU having NVDIA GPU 
 				(with high computational speed)
@@ -120,20 +143,22 @@
 		- For Intel Xeon Architecture and no GPU with 16GB of RAM, around 24 s/step 
 		  for 24 as batch size.
 		  i.e To complete 10k steps, days = (10000 / ((24 * 60 * 60)/24)) ~ 2.78. 
-		  i.e 2.78 days for 10k steps, therefor to complete 100k steps it has to take 27.8 days ~ 28 days
-		- For Intel Xeon Architecture and no GPU with 16GB of RAM, around 10 s/step for 10 as batch size.
+		  i.e 2.78 days for 10k steps, therefor to complete 100k steps it has to take 27.8 days
+			~ 28 days
+		- For Intel Xeon Architecture and no GPU with 16GB of RAM, around 10 s/step for 10 
+			as batch size.
 		  i.e To complete 10k steps, days = (10000 / ((24 * 60 * 60)/10) ~ 1. 
 		  i.e 1 day for 10k steps, therefor to complete 100k steps it has to take 10 days.
-		- For NVDIA GPU having computational capability of 5.0,	around 3.3 s/step for batch size 10. 
-		  (2GB card)
+		- For NVDIA GPU having computational capability of 5.0,	around 3.3 s/step for batch 
+			size 10. (2GB card)
 		  i.e To complete 10k steps, days = (10000 / ((24 * 60 * 60)/3.3) ~ .4.
 
 7)	Trying for 1st point, increased the dataset but hard thing that it went upside down, 
 	tedious task and no good result.
 
-8)	No hint how to solve the problem with 5th point, because blank model is like, again building a whole 
-	new architecture of multilayered CNN and giving it training which is a really time consuming. 
-	And not a smart work, Google has build tensorflow object-detection models 
+8)	No hint how to solve the problem with 5th point, because blank model is like, again building 
+	a whole new architecture of multilayered CNN and giving it training which is a really time 
+	consuming. And not a smart work, Google has build tensorflow object-detection models 
 	after 1 and half years of experiments.  
 
 9)	Last option, as the concept for object-detection we used in earlier concept of HOG with SVM, 
@@ -142,43 +167,77 @@
 		- Other than Aluminium Can
 
 
-#########################################################################################################################
+#########################################################################################################
 
 				TENSORFLOW PRE-TRAINED MODELS
 
-- This models are known as pre-trained, as they have ability to extract features from images faster than a new model.
-- They are like models which have good feature extracting skill, not fast object-detection skill as per it's defination 
-  	conveys.
+- This models are known as pre-trained, as they have ability to extract features from images 
+	faster than a new model.
+- They are like models which have good feature extracting skill, not fast object-detection 
+	skill as per it's defination conveys.
 - According to theory, model can be trained for custom objects.
-- This model has to be trained everytime with tfrecords of all the classes or objects which you need to detect 
-  	from an image or live video for the custom object detection.
-- Stopping of training of this model can lead you too a model which is trained for that amount of training steps.
-	Restarting it from present number of step will not increase the amount of training, 
-	but will again start training from zero. This model is not going remember what was done till that number of steps.
-- Model is a good feature extractor not classifier or object-detector. With restarting the training it will 
-	again start it's training as if it had no knowledge with itself.
+- This model has to be trained everytime with tfrecords of all the classes or objects which you need 
+	to detect from an image or live video for the custom object detection.
+- Stopping of training of this model can lead you too a model which is trained for that amount of 
+	training steps. Restarting it from present number of step will not increase the amount of 
+	training, but will again start training from zero. This model is not going remember what was 
+	done till that number of steps.
+- Model is a good feature extractor not classifier or object-detector. With restarting the training 
+	it will again start it's training as if it had no knowledge with itself.
 - Observation states that around 2-3k steps might be required per objects or classes.
 - As per observation each classes should have atleast 300-400 images and in specific file format "jpg".
-	As transfering or converting pixels value of an image to 4 dimensional and 3 channeled tensors might not 
-	work for different file formats.
+	As transfering or converting pixels value of an image to 4 dimensional and 3 channeled tensors 
+	might not work for different file formats.
 
-##########################################################################################################################
+#########################################################################################################
 
 			STEPS TO TRAIN CUSTOM OBJECT DETECTION MODEL
 
 1)	Generate "TFRECORD", which is prefered file format with bytes form of record.
 	- To generate check previous section of "TFRECORD GENTERATION".
 
-2)	Keep the whole downloaded model ssd_inception_v2_coco in the folder object-detection of model-master (tensorflow api).
-	=> path: model-master/research/object-detection/ 	or  	path: models/research/object-detection/
+2)	Keep the whole downloaded model ssd_inception_v2_coco in the folder object-detection of 
+	model-master (tensorflow api).
+	=> path: model-master/research/object-detection/
+		or 
+	   path: models/research/object-detection/
 
 3)	Update config file of inception model according to folder names user defined.
 	=> path: model-master/research/object-detection/samples/configs/
 
-		- Change the batch size according to your system compabilities. (Generally batch_size = 10)
+		- Change the batch size according to your system compabilities. 
+			(Generally batch_size = 10)
 		- Change path to downloaded model, i.e ssd_inception_v2_coco
 			-> ssd_inception_v2_coco/model.index
 		- Change path to label file, under train section
 
-4)	create a folder where you want to store the trained model.
-	- for example: training, 
+4)	Create a folder where you want to store the trained model.
+	- for example: training
+
+5)	Add edited config file to training folder.
+
+6)	Create a file with extension ".pbtxt".
+	=> i.e object-detection.pbtxt
+		-> Contain in the file
+	
+	$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+			item{
+				id: 1;
+				name: 'Can';
+			}
+
+			item{
+				id: 2;
+				name: 'Person';
+			}
+	$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+7)	Start Training with 
+	=> python train.py --logtostderr --train_dir=training/ 
+		--pipeline_config_path=training/ssd_inception_v2_coco.config
+
+8)	Create your trained model from files in training folder.
+	=> python export_inference_graph.py --input_type image_tensor 
+		--pipeline_config_path training/ssd_inception_v2_coco.config 
+		--trained_checkpoint_prefix training/model.ckpt-<number of steps> 
+		--output_directory <custom_model_name>
