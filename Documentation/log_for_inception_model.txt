@@ -9,21 +9,20 @@
 	=> "Aluminium Can", "Plastic Bottle", "Banana Peel", are some of the objects which can be either
 	   recycled or are bio-degradable.
 	=> Detailed:
-		- A script executed over local machine that can detect this objects.
-		- If it detects any of the objects for which that has been trained, will identify
-		  and locate it from the Image or Video.
+		- A script executed over local machine that can detect these objects.
+		- If the system detects any of the objects for which it has been trained, it will 
+		  identify and locate these object from the Image or Video.
 		- A Rectangluar Box with label or Name of the object will be seen over the object.
-		- Using this script, a robotic system can get idea about where in the real world object
-		  is situated. The Position of object in real world according to position of object
-		  in the image or video.
+		- Using this script, a robotic system can get an idea about where in the real world the
+		  object is situated.
 		- 
 
 2)	Reason
-	=> Workers and People are getting killed every day, near and in this large Dump-Yards (Landfills).
-	=> Finding objects which can be recycled is an important task in this era. As dump is increasing
-	   place to store that has become an issue.
-	=> On this Landfills large fires have cased huge damages.
-	=> Bio-Degradable waste creates bio-gas, that casues diseases like asthma, etc.
+	=> People living or working near these large Dump-Yards(Landfills) are dying each day because
+	   Bio-Degradable waste creates bio-gas, that casues diseases like asthma, etc.
+	=> Finding objects that are recyclable is important in this era. As dump is increasing size of
+	   these Landfills increases which has become an issue.
+	=> On these Landfills large fires have caused huge damages.
 	=> 
 
 #########################################################################################################
@@ -33,13 +32,14 @@
 1)	Python (General Programming Langauge)
 	- Download it from python.org (version requirement 3.5 and above).
 
-=> Need to set path, for the python in environment path variable of system, one path till "Python" folder
-	on the hard drive. Another till the "Scripts" folder which can be found in "Python" folder.
+=> You will need to set a path for the python environment 'path' variable of system. The first path that 
+	you need to set is till the "Python" folder on the hard drive. Another till the "Scripts" folder 
+	which can be found in "Python" folder.
 
-=> Either one can go with "ANACONDA DISTRIBUTION FOR PYTHON" install it.
+=> another option is "ANACONDA DISTRIBUTION FOR PYTHON" if you want to purely work on data science.
 	- Download it from https://www.anaconda.com/download/
 
-=> With intel processor, can go with "INTEL DISTRIBUTION FOR PYTHON".
+=> or if you have an intel processor, you can go with "INTEL DISTRIBUTION FOR PYTHON".
 
 2)	Tensorflow (Google API for Machine Learning)
 	- pip install tensorflow --upgrade --timeout 300 (not having NVIDIA gpu)
@@ -94,44 +94,49 @@
 
 2)	Use a specific software for creating bounding boxes over your objects in an image and manually 
 	label them according to their name or display name.
-	It will create xml file having 
+	It will create a xml file having: 
 		1. Name of the image file.
 		2. xmax, xmin, ymax, ymin (forming a rectangular box over the object you trace using
 			 the software) of each boxes in given image.
 		3. Label for the box according to rectangular area selected.
 
 3)	This Information should be extracted and converted into a single csv file from each xml file
-	of each image. Different objects different csv file.
+	of each image. For each object that has been marked, there will be a different csv file.
 
-4)	Add "flags" and accordingly change tfrecord generator file to take images of objects and csv file
-	respectively to convert each image data to tfrecord (single file).
-		- i.e Python has this "flags", which has functionality to pass command line arugments.
+4)	Add "flags" and accordingly change tfrecord generator file to take images of objects and csv 
+	file respectively to convert each image data to tfrecord (single file).
+		- i.e Python has this "flags", which has a functionality to pass command line arugments.
 		- As this generator file requires the path of folder in which images are stored and path
 		  to csv files, flags are used to pass the absolute or symbolic path.
-		- Initially as only one image dataset is been used for trail, it is having three flag for
-		  one for each path to csv, path to folder where positive images are stored and path to 
-		  folder where negative images are stored respectively.
-		- Due which as per requirement add flags in any sequence to file of tfrecord generator.
+		- Initially as only one image dataset is being used for trial
+		- Each tfrecord generator file needs three flags:
+			1. Path of csv file which has the information of all the xml files of that object
+			2. Path to the folder where the positive images(images of the object that are to 
+			   be detected) are stored
+			3. Path to the folder where the negative images are stored
+		- Due to this as per requirement add flags in any sequence to file of tfrecord generator.
 
 #########################################################################################################
 
 			OBJECT-DETECTION AND ITS CHALLENGES
 
-1) 	Initial we had taken around 130 images with inception model version 2, tried to solve the 
-	problem of Aluminium Can detection from images, live video streaming.
-	As we started to train model for a single object Aluminium Can, at about every 5k steps
-	we have checked the accuracy of the model, it had always come with good accuracy to 
-	detect Aluminium Can, but on other hand it was always trying detect Aluminium Can in each image.
+1) 	Initially around 130 images were taken into account for test with inception model version 2 to 
+	solve the problem of 'Aluminium Can' detection from images. The result of was expected that 
+	the script would instantly detect a 'Can' present in a live feed. 
+	
+	As the model was being trained for a single object Aluminium Can, at about every 5k steps
+	the accuracy of the model was checked, the result was that it had a really good accuracy to 
+	detect Aluminium Can, but on other hand it was always trying to detect it in each image.
 
-2)	We have done a continous training over that model, make it perfect but we are not getting the
-	desired result, which is to detect Aluminium Can, if it is in the image or video.
+2)	Even after the fact that continuous training was given to the model to perfectly detect the can 
+	the results were not satisfactory.
 
-3)	Around 80k steps, which is about 9 days of continuous training time, with the same dataset,
-	result almost similar to previous, detecting Aluminium Can, but trying to over-fit
-	Aluminium Can over each image. Showing bounding boxes and labeling as Aluminium Can,
-	for even a dog, cat, etc.
+3)	At around 80k steps, which is about 9 days of continuous training time, with the same dataset,
+	result were almost similar to previous ones. On top of that it detected a can where there was 
+	none.
+	Dog, cat, etc were also labelled as a 'Can' by the model.
 
-4)	Thinking where we might have gone wrong
+4)	Thinking where the model might have gone wrong
 		1. Small dataset
 			solution: Increase dataset, in perticular format.
 		2. Model choosen (ssd_inception_v2_coco) is not appropriate for Aluminium Can
@@ -140,21 +145,22 @@
 		3. Hardware not supported (Proccessor or Computational Power)
 			solution: use cloud or try to find some good configration CPU having NVDIA GPU 
 				(with high computational speed)
-		4. Single Class (Aluminium Can) detector trying to supper-impossing
+		4. Single Class (Aluminium Can) detector trying to superimpose
 			solution: Increasing number of classes or Providing two classes 
 				(Aluminium Can and None:- not having Aluminium Can)
 		5. Model is trained and trying to find all the previous classes on which 
 		   it was been trained.
 			solution: Use a model which have objects not related to
 				 Aluminium Can (in shape and colour)
-		6. A concept says larger the batch size provided for training, better might be the result.
+		6. A concept says larger the batch size provided for training, better might be the 
+		   result.
 			solution: Increase batch size and Have to choose hardware which can support 
 				or handle large dataset at a perticular instance.
 
-5)	Trying for 3rd point, changing the hardware doesn't seem to work-out, same problem detecting 
-	can in each images.
+5)	Trying for 3rd point, changing the hardware did not work-out well, same problem detecting 
+	can in each images where there wwas none.
 
-6)	Trying for 6th point, it was difficult as increasing batch size needs large amount of RAM 
+6)	Trying for 6th point, it was difficult as increasing batch size needed large amount of RAM 
 	(Minimum 14GB with 15 as batch size), or large GPU.
 	Still tried with that concept. leading it takes time about 
 		- For Intel Xeon Architecture and no GPU with 16GB of RAM, around 24 s/step 
@@ -173,6 +179,7 @@
 7)	Trying for 1st point, increased the dataset but hard thing that it went upside down, 
 	tedious task and no good result.
 
++
 8)	No hint how to solve the problem with 5th point, because blank model is like, again building 
 	a whole new architecture of multilayered CNN and giving it training which is a really time 
 	consuming. And not a smart work, Google has build tensorflow object-detection models 
