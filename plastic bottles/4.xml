@@ -1,0 +1,26 @@
+<annotation>
+	<folder>plastic bottles</folder>
+	<filename>83568193-2418-40f0-8367-4fd80481e2f8_1.fc5284020d9e9b9bcd45d777a9e62bb5.jpeg</filename>
+	<path>E:/Keval/Git/LandfillRefinery/plastic bottles/83568193-2418-40f0-8367-4fd80481e2f8_1.fc5284020d9e9b9bcd45d777a9e62bb5.jpeg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>450</width>
+		<height>450</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>plastic-bottle</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>151</xmin>
+			<ymin>2</ymin>
+			<xmax>298</xmax>
+			<ymax>450</ymax>
+		</bndbox>
+	</object>
+</annotation>

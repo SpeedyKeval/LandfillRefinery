@@ -1,0 +1,26 @@
+<annotation>
+	<folder>plastic bottles</folder>
+	<filename>San-Benedetto-Carbonated-Spring-Water-1-5L-190x190.jpg</filename>
+	<path>E:/Keval/Git/LandfillRefinery/plastic bottles/San-Benedetto-Carbonated-Spring-Water-1-5L-190x190.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>190</width>
+		<height>190</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>plastic bottle</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>69</xmin>
+			<ymin>11</ymin>
+			<xmax>119</xmax>
+			<ymax>179</ymax>
+		</bndbox>
+	</object>
+</annotation>

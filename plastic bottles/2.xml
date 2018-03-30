@@ -1,0 +1,26 @@
+<annotation>
+	<folder>plastic bottles</folder>
+	<filename>611ki2MFBNL._SL1500_.jpg</filename>
+	<path>E:/Keval/Git/LandfillRefinery/plastic bottles/611ki2MFBNL._SL1500_.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1500</width>
+		<height>1500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>plastic-bottle</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>485</xmin>
+			<ymin>77</ymin>
+			<xmax>916</xmax>
+			<ymax>1415</ymax>
+		</bndbox>
+	</object>
+</annotation>

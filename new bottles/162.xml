@@ -1,0 +1,26 @@
+<annotation>
+	<folder>new bottles</folder>
+	<filename>SPRITE_0x5l_color.jpg469a033b-22fb-471f-a174-77b69420d48bOriginal.jpg</filename>
+	<path>E:/Keval/Git/LandfillRefinery/new bottles/SPRITE_0x5l_color.jpg469a033b-22fb-471f-a174-77b69420d48bOriginal.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>800</width>
+		<height>600</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>plastic bottle</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>313</xmin>
+			<ymin>57</ymin>
+			<xmax>458</xmax>
+			<ymax>530</ymax>
+		</bndbox>
+	</object>
+</annotation>

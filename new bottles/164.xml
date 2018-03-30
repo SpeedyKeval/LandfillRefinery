@@ -1,0 +1,26 @@
+<annotation>
+	<folder>new bottles</folder>
+	<filename>sprite-zagreb-croatia-january-plastic-bottle-soft-drink-coca-cola-company-63576240.jpg</filename>
+	<path>E:/Keval/Git/LandfillRefinery/new bottles/sprite-zagreb-croatia-january-plastic-bottle-soft-drink-coca-cola-company-63576240.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>600</width>
+		<height>900</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>plastic bottle</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>180</xmin>
+			<ymin>55</ymin>
+			<xmax>403</xmax>
+			<ymax>823</ymax>
+		</bndbox>
+	</object>
+</annotation>

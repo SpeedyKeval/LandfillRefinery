@@ -1,0 +1,50 @@
+<annotation>
+	<folder>new bottles</folder>
+	<filename>575482f540694b59e2d6cdeb775c4090--bottle-design-plastic-bottles.jpg</filename>
+	<path>E:/Keval/Git/LandfillRefinery/new bottles/575482f540694b59e2d6cdeb775c4090--bottle-design-plastic-bottles.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>236</width>
+		<height>350</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>plastic bottle</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>119</xmin>
+			<ymin>86</ymin>
+			<xmax>185</xmax>
+			<ymax>248</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>plastic bottle</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>19</xmin>
+			<ymin>13</ymin>
+			<xmax>103</xmax>
+			<ymax>292</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>plastic bottle</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>12</xmin>
+			<ymin>239</ymin>
+			<xmax>233</xmax>
+			<ymax>343</ymax>
+		</bndbox>
+	</object>
+</annotation>
